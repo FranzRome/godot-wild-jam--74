@@ -43,6 +43,10 @@ interact={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_2="interactions"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

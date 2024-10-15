@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmgdgae23gn6n"]
+[gd_scene load_steps=10 format=3 uid="uid://dmgdgae23gn6n"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lomu2"]
 [ext_resource type="Texture2D" uid="uid://cj2503mwh4gjo" path="res://sprites/player_placeholder.png" id="2_683qt"]
 [ext_resource type="Texture2D" uid="uid://dv88f6aae21wl" path="res://icons/icon.svg" id="3_6ibdu"]
 [ext_resource type="Texture2D" uid="uid://d2772la4150j4" path="res://icons/GWJ-Full-Logo-noBG.svg" id="4_qq1qr"]
+[ext_resource type="PackedScene" uid="uid://bafdf18a4ruk6" path="res://game_components/interact_area.tscn" id="5_qm7wi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8re5"]
 size = Vector2(16, 15)
@@ -18,6 +19,8 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hrxdi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ak3ou"]
 size = Vector2(120, 119.25)
@@ -36,6 +39,35 @@ shape = SubResource("RectangleShape2D_a8re5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_sn341")
+
+[node name="Interaction Components" type="Node2D" parent="Player"]
+z_index = 1
+
+[node name="InteractionArea" type="Area2D" parent="Player/Interaction Components"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Interaction Components/InteractionArea"]
+scale = Vector2(1.45276, 1.52729)
+shape = SubResource("CircleShape2D_hrxdi")
+
+[node name="InteractLabel" type="Label" parent="Player/Interaction Components"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -28.0
+offset_right = 24.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.925567, 0.677378)
+text = "ciao"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Wall" type="Node2D" parent="."]
 scale = Vector2(0.2, 1)
@@ -97,7 +129,7 @@ shape = SubResource("RectangleShape2D_ak3ou")
 texture = ExtResource("3_6ibdu")
 
 [node name="Button1" type="Node2D" parent="."]
-position = Vector2(90, -81)
+position = Vector2(-39, -136)
 scale = Vector2(0.4, 0.3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Button1"]
@@ -109,8 +141,14 @@ shape = SubResource("RectangleShape2D_ak3ou")
 scale = Vector2(0.1, 0.15)
 texture = ExtResource("4_qq1qr")
 
+[node name="InteractArea" parent="Button1" instance=ExtResource("5_qm7wi")]
+scale = Vector2(2.70767, 3.3373)
+interact_label = "Attiva/Disattiva"
+interact_type = "toggle button A"
+interact_value = "Attivato button a"
+
 [node name="Button2" type="Node2D" parent="."]
-position = Vector2(84, -124)
+position = Vector2(57, -137)
 scale = Vector2(0.4, 0.3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Button2"]
@@ -122,8 +160,14 @@ shape = SubResource("RectangleShape2D_ak3ou")
 scale = Vector2(0.1, 0.15)
 texture = ExtResource("4_qq1qr")
 
+[node name="InteractArea" parent="Button2" instance=ExtResource("5_qm7wi")]
+scale = Vector2(2.95225, 3.0289)
+interact_label = "Attiva/Disattiva"
+interact_type = "toggle button B"
+interact_value = "Attivato button b "
+
 [node name="Button3" type="Node2D" parent="."]
-position = Vector2(144, -124)
+position = Vector2(157, -137)
 scale = Vector2(0.4, 0.3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Button3"]
@@ -134,3 +178,12 @@ shape = SubResource("RectangleShape2D_ak3ou")
 [node name="Sprite2D" type="Sprite2D" parent="Button3"]
 scale = Vector2(0.1, 0.15)
 texture = ExtResource("4_qq1qr")
+
+[node name="InteractArea" parent="Button3" instance=ExtResource("5_qm7wi")]
+scale = Vector2(2.81804, 3.07897)
+interact_label = "Attiva/Disattiva"
+interact_type = "toggle button C"
+interact_value = "Attivato button c"
+
+[connection signal="area_entered" from="Player/Interaction Components/InteractionArea" to="Player" method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="Player/Interaction Components/InteractionArea" to="Player" method="_on_interaction_area_area_exited"]
