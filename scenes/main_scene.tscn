@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dmgdgae23gn6n"]
+[gd_scene load_steps=12 format=3 uid="uid://dmgdgae23gn6n"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lomu2"]
 [ext_resource type="Texture2D" uid="uid://cj2503mwh4gjo" path="res://sprites/player_placeholder.png" id="2_683qt"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bskeq2jfvgc5o" path="res://icons/haunted.png" id="4_cvc0x"]
 [ext_resource type="Texture2D" uid="uid://d2772la4150j4" path="res://icons/GWJ-Full-Logo-noBG.svg" id="4_qq1qr"]
 [ext_resource type="PackedScene" uid="uid://bafdf18a4ruk6" path="res://game_components/interact_area.tscn" id="5_qm7wi"]
+[ext_resource type="AudioStream" uid="uid://dnxoy4pp73v20" path="res://audio/factory_reset.mp3" id="7_7uk0u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8re5"]
 size = Vector2(16, 15)
@@ -70,6 +71,14 @@ scale = Vector2(0.925567, 0.677378)
 text = "ciao"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AmbientSound" type="AudioStreamPlayer2D" parent="Player"]
+scale = Vector2(0.597804, 0.608695)
+stream = ExtResource("7_7uk0u")
+autoplay = true
+attenuation = 1.32835e-05
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Player"]
 
 [node name="Wall" type="Node2D" parent="."]
 position = Vector2(-195, -106)
