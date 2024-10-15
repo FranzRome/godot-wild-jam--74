@@ -51,6 +51,8 @@ var button_b_pressed = false
 var button_c_pressed = false
 
 func execute_interactions():
+	#chiama funziona interact della leva
+	all_interactions[0].toggle_leva()
 	if all_interactions:
 		var current_interaction = all_interactions[0]
 		match current_interaction.interact_type:
