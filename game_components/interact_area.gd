@@ -1,4 +1,4 @@
-class_name Interactable extends Area2D
+class_name InteractablePuzzleLeva extends Area2D
 
 @export var interact_label = "name"
 @export var interact_type = "none"
@@ -13,7 +13,7 @@ func interact_leva():
 
 func change_visual():
 	if(is_leva_active):
-		var texture = load('res://icons/icon.svg')
+		var texture = load('res://icons/GWJ-Full-Logo-noBG.svg')
 	
 		var sprite: Sprite2D = get_parent().get_node("Sprite2D") 
 		sprite.texture = texture
