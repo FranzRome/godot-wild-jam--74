@@ -10,6 +10,7 @@ func interact_leva():
 	is_leva_active = !is_leva_active
 	change_visual()
 
+
 func change_visual():
 	if(is_leva_active):
 		var texture = load('res://icons/icon.svg')

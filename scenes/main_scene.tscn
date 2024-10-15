@@ -214,7 +214,7 @@ interact_type = "toggle button C"
 interact_value = "Attivato button c"
 
 [node name="Timed Button" type="Node2D" parent="."]
-position = Vector2(157, -137)
+position = Vector2(157, -67)
 scale = Vector2(0.4, 0.3)
 script = ExtResource("8_lwxkx")
 
