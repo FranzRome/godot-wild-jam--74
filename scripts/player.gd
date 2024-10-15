@@ -25,18 +25,6 @@ func _process(delta):
 	pass
 
 
-func _interact():
-	var space_state = get_world_2d().direct_space_state
-	# use global coordinates, not local to node
-	var query = PhysicsRayQueryParameters2D.create(global_position, global_position + _last_direction * _interaction_distance, collision_mask, [self])
-	print(query.collision_mask)
-	query.collide_with_areas = true 
-	var result = space_state.intersect_ray(query)
-	if(!result.is_empty()):
-		print("hit")
-	
-
-
 
 #Area di interazione 
 
@@ -57,12 +45,33 @@ func _update_interactions():
 	else:
 		interact_label.text = ""
 	
+	
+var button_a_pressed = false
+var button_b_pressed = false
+var button_c_pressed = false
+
 func execute_interactions():
 	if all_interactions:
 		var current_interaction = all_interactions[0]
 		match current_interaction.interact_type:
-			"toggle button A": print("premuto leva A")
-			"toggle button B": print("premuto leva B")
-			"toggle button C": print("premuto leva C")
-			
+			"toggle button A": 
+				button_a_pressed = !button_a_pressed
+				print("button a: " +  str(button_a_pressed) )
+			"toggle button B":
+				button_b_pressed = !button_b_pressed
+				print("button b: " + str(button_b_pressed))
+			"toggle button C": 
+				button_c_pressed = !button_c_pressed
+				print("button c: " + str(button_c_pressed))
 		
+		if(button_a_pressed==true && button_b_pressed==false && button_c_pressed==true):
+			open_escape_door()
+		else:
+			close_escape_door()	
+			
+func open_escape_door():
+	get_node("/root/MainScene/Door").position = Vector2(139, 149)
+		
+		
+func close_escape_door():
+	pass
