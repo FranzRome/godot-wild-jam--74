@@ -74,4 +74,4 @@ func open_escape_door():
 		
 		
 func close_escape_door():
-	pass
+	get_node("/root/MainScene/Door").position = Vector2(217, 71)
