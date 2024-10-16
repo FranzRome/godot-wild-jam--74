@@ -30,8 +30,6 @@ size = Vector2(120, 119.25)
 
 [node name="MainScene" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(45, -73)
 scale = Vector2(1.67279, 1.64286)
@@ -81,6 +79,8 @@ attenuation = 1.32835e-05
 parameters/looping = true
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Player"]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="Wall" type="Node2D" parent="."]
 position = Vector2(-195, -106)
@@ -171,7 +171,7 @@ texture = ExtResource("4_qq1qr")
 
 [node name="InteractArea" parent="Button1" instance=ExtResource("5_qm7wi")]
 scale = Vector2(2.70767, 3.3373)
-interact_label = "Attiva/Disattiva"
+interact_label = "Push"
 interact_type = "toggle button A"
 interact_value = "Attivato button a"
 
@@ -190,7 +190,7 @@ texture = ExtResource("4_qq1qr")
 
 [node name="InteractArea" parent="Button2" instance=ExtResource("5_qm7wi")]
 scale = Vector2(2.95225, 3.0289)
-interact_label = "Attiva/Disattiva"
+interact_label = "Push"
 interact_type = "toggle button B"
 interact_value = "Attivato button b "
 
@@ -209,7 +209,7 @@ texture = ExtResource("4_qq1qr")
 
 [node name="InteractArea" parent="Button3" instance=ExtResource("5_qm7wi")]
 scale = Vector2(2.81804, 3.07897)
-interact_label = "Attiva/Disattiva"
+interact_label = "Push"
 interact_type = "toggle button C"
 interact_value = "Attivato button c"
 
@@ -229,9 +229,9 @@ texture = ExtResource("4_qq1qr")
 
 [node name="InteractArea" parent="Timed Button" instance=ExtResource("5_qm7wi")]
 scale = Vector2(2.81804, 3.07897)
-interact_label = "Attiva/Disattiva"
-interact_type = "toggle button C"
-interact_value = "Attivato button c"
+interact_label = "Push"
+interact_type = "toggle button D"
+interact_value = "Attivato button D"
 
 [connection signal="area_entered" from="Player/Interaction Components/InteractionArea" to="Player" method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="Player/Interaction Components/InteractionArea" to="Player" method="_on_interaction_area_area_exited"]

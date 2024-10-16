@@ -13,12 +13,12 @@ func interact_leva():
 
 func change_visual():
 	if(is_leva_active):
-		var texture = load('res://icons/GWJ-Full-Logo-noBG.svg')
+		var texture = load('res://icons/haunted.png')
 	
 		var sprite: Sprite2D = get_parent().get_node("Sprite2D") 
 		sprite.texture = texture
 	else:	
-		var texture = load('res://icons/haunted.png')
+		var texture = load('res://icons/GWJ-Full-Logo-noBG.svg')
 	
 		var sprite: Sprite2D = get_parent().get_node("Sprite2D") 
 		sprite.texture = texture

@@ -52,9 +52,10 @@ var button_c_pressed = false
 
 func execute_interactions():
 	#chiama funziona interact della leva
-	all_interactions[0].interact_leva()
+	
 	if all_interactions:
 		var current_interaction = all_interactions[0]
+		current_interaction.interact_leva()
 		match current_interaction.interact_type:
 			"toggle button A": 
 				button_a_pressed = !button_a_pressed
@@ -65,6 +66,7 @@ func execute_interactions():
 			"toggle button C": 
 				button_c_pressed = !button_c_pressed
 				print("button c: " + str(button_c_pressed))
+			
 		
 		if(button_a_pressed==true && button_b_pressed==false && button_c_pressed==true):
 			open_escape_door()
