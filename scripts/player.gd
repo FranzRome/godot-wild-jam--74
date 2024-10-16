@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 @export var speed: float = 100
 @export var accel: float = 10
-var _last_direction: Vector2 = Vector2.ZERO
-@export var _interaction_distance = 1
 
 @onready var interact_label = $"Interaction Components/InteractLabel"
 
@@ -15,7 +13,7 @@ func _physics_process(delta):
 	velocity.y = move_toward(velocity.y, speed * direction.y, accel)
 	
 	move_and_slide()
-	_last_direction = direction
+
 	if(Input.is_action_just_pressed("interact") == true):
 		PuzzleManager.execute_interactions()
 
