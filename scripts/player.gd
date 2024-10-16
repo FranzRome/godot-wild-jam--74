@@ -17,18 +17,10 @@ func _physics_process(delta):
 	if(Input.is_action_just_pressed("interact") == true):
 		PuzzleManager.execute_interactions()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-
-#Area di interazione 
-
+# Interaction area
 func _on_interaction_area_area_entered(area: Area2D):
 	interact_label.text = PuzzleManager.on_player_enter_area(area)
 
 
 func _on_interaction_area_area_exited(area: Area2D):
 	interact_label.text = PuzzleManager.on_player_exit_area(area)
-	

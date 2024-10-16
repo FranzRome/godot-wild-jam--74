@@ -10,11 +10,11 @@ var button_c_pressed = false
 var interact_label = ""
 
 func execute_interactions():
-	#chiama funziona interact della leva
+	# Calls the interact function of the lever
 	
 	if all_interactions:
 		var current_interaction = all_interactions[0]
-		current_interaction.interact_leva()
+		current_interaction.interact_lever()
 		match current_interaction.interact_type:
 			"toggle button A": 
 				button_a_pressed = !button_a_pressed
@@ -45,9 +45,9 @@ func on_player_exit_area(area: Area2D):
 	return interact_label
 
 func update_visual():
-	print("visual aggiornato")
+	print("visual updated")
 	if(all_interactions):
-		interact_label= all_interactions[0].interact_label
+		interact_label = all_interactions[0].interact_label
 	else:
 		interact_label = ""	
 			
