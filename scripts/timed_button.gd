@@ -5,11 +5,13 @@ extends Node2D
 
 var timer: float
 var active
+var interact_area: InteractablePuzzleLever
 
 
 func _ready():
 	timer = 0
 	active = false
+	interact_area = get_child(2)
 
 func _process(delta):
 	if timer > 0:

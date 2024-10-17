@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Godot Wild Jam #74"
-run/main_scene="res://scenes/main_scene.tscn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icons/icon.svg"
 
 [autoload]
 
-PuzzleManager="*res://singleton/puzzle_manager.gd"
+PuzzleManager="*res://scripts/singleton/puzzle_manager.gd"
 
 [input]
 

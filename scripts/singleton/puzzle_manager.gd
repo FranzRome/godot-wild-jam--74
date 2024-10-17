@@ -1,7 +1,8 @@
 extends Node
 
-@onready var all_interactions = []
+@export var door: Node2D
 
+@onready var all_interactions = []
 
 var button_a_pressed = false
 var button_b_pressed = false
@@ -52,8 +53,8 @@ func update_visual():
 		interact_label = ""	
 			
 func open_escape_door():
-	get_node("/root/MainScene/Door").position = Vector2(139, 149)
+	get_node("/root/MainScene/Environment/Interactables/Door").position = Vector2(139, 149)
 		
 		
 func close_escape_door():
-	get_node("/root/MainScene/Door").position = Vector2(217, 71)
+	get_node("/root/MainScene/Environment/Interactables/Door").position = Vector2(217, 71)

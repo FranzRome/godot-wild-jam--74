@@ -1,34 +1,354 @@
-[gd_scene load_steps=13 format=3 uid="uid://dmgdgae23gn6n"]
+[gd_scene load_steps=31 format=3 uid="uid://dmgdgae23gn6n"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_lomu2"]
-[ext_resource type="Texture2D" uid="uid://cj2503mwh4gjo" path="res://sprites/player_placeholder.png" id="2_683qt"]
+[ext_resource type="PackedScene" uid="uid://d3l5vbnm64pd4" path="res://scenes/lever.tscn" id="3_1c46e"]
 [ext_resource type="Texture2D" uid="uid://dv88f6aae21wl" path="res://icons/icon.svg" id="3_6ibdu"]
 [ext_resource type="Texture2D" uid="uid://bskeq2jfvgc5o" path="res://icons/haunted.png" id="4_cvc0x"]
 [ext_resource type="Texture2D" uid="uid://d2772la4150j4" path="res://icons/GWJ-Full-Logo-noBG.svg" id="4_qq1qr"]
-[ext_resource type="PackedScene" uid="uid://bafdf18a4ruk6" path="res://game_components/interact_area.tscn" id="5_qm7wi"]
+[ext_resource type="PackedScene" uid="uid://bafdf18a4ruk6" path="res://scenes/game_components/interact_area.tscn" id="5_qm7wi"]
+[ext_resource type="Texture2D" uid="uid://dlfx61bght1r5" path="res://sprites/Environment/Floor/Sprite_floor_colorindex.png" id="7_4lmn5"]
 [ext_resource type="AudioStream" uid="uid://dnxoy4pp73v20" path="res://audio/factory_reset.mp3" id="7_7uk0u"]
+[ext_resource type="Texture2D" uid="uid://cpx3l44exy0pg" path="res://sprites/Characters/player_sheet.png" id="7_qa5bu"]
 [ext_resource type="Script" path="res://scripts/timed_button.gd" id="8_lwxkx"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ak3ou"]
+size = Vector2(120, 119.25)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8re5"]
-size = Vector2(16, 15)
+size = Vector2(10.1627, 6.23914)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2omm0"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53xs6"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k80rw"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi0ch"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w418"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7xor"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnfa6"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6l7p"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x84gg"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kau34"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1jrr"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xomi5"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luutu"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxa5d"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnbun"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whr2u"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sn341"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_683qt")
+"texture": SubResource("AtlasTexture_2omm0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53xs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k80rw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi0ch")
 }],
 "loop": true,
-"name": &"default",
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w418")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7xor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnfa6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6l7p")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x84gg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kau34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1jrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xomi5")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luutu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxa5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnbun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whr2u")
+}],
+"loop": true,
+"name": &"up",
 "speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hrxdi"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ak3ou"]
-size = Vector2(120, 119.25)
+radius = 5.08063
 
 [node name="MainScene" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Floor" type="Node2D" parent="Environment"]
+
+[node name="Floor1" type="Sprite2D" parent="Environment/Floor"]
+texture_filter = 1
+position = Vector2(-152, -247)
+texture = ExtResource("7_4lmn5")
+
+[node name="Floor2" type="Sprite2D" parent="Environment/Floor"]
+texture_filter = 1
+position = Vector2(39, -247)
+texture = ExtResource("7_4lmn5")
+
+[node name="Floor3" type="Sprite2D" parent="Environment/Floor"]
+texture_filter = 1
+position = Vector2(230, -247)
+texture = ExtResource("7_4lmn5")
+
+[node name="Floor4" type="Sprite2D" parent="Environment/Floor"]
+texture_filter = 1
+position = Vector2(-151, -120)
+texture = ExtResource("7_4lmn5")
+
+[node name="Floor5" type="Sprite2D" parent="Environment/Floor"]
+texture_filter = 1
+position = Vector2(40, -120)
+texture = ExtResource("7_4lmn5")
+
+[node name="Floor6" type="Sprite2D" parent="Environment/Floor"]
+texture_filter = 1
+position = Vector2(231, -120)
+texture = ExtResource("7_4lmn5")
+
+[node name="Floor7" type="Sprite2D" parent="Environment/Floor"]
+texture_filter = 1
+position = Vector2(-148.5, 5.5)
+texture = ExtResource("7_4lmn5")
+
+[node name="Floor8" type="Sprite2D" parent="Environment/Floor"]
+texture_filter = 1
+position = Vector2(42.5, 5.5)
+texture = ExtResource("7_4lmn5")
+
+[node name="Floor9" type="Sprite2D" parent="Environment/Floor"]
+texture_filter = 1
+position = Vector2(233.5, 5.5)
+texture = ExtResource("7_4lmn5")
+
+[node name="Walls" type="Node2D" parent="Environment"]
+
+[node name="Wall1" type="Node2D" parent="Environment/Walls"]
+position = Vector2(-195, -106)
+scale = Vector2(0.84, 3.36)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Walls/Wall1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Walls/Wall1/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ak3ou")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Walls/Wall1"]
+texture = ExtResource("3_6ibdu")
+
+[node name="Wall2" type="Node2D" parent="Environment/Walls"]
+position = Vector2(21, 68)
+scale = Vector2(2.53561, -0.610534)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Walls/Wall2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Walls/Wall2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ak3ou")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Walls/Wall2"]
+texture = ExtResource("3_6ibdu")
+
+[node name="Wall3" type="Node2D" parent="Environment/Walls"]
+position = Vector2(286, -101)
+scale = Vector2(0.44, 3.44)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Walls/Wall3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Walls/Wall3/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ak3ou")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Walls/Wall3"]
+texture = ExtResource("3_6ibdu")
+
+[node name="Wall4" type="Node2D" parent="Environment/Walls"]
+position = Vector2(57, -299)
+scale = Vector2(3.36, 0.3)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Walls/Wall4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Walls/Wall4/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ak3ou")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Walls/Wall4"]
+texture = ExtResource("3_6ibdu")
+
+[node name="Interactables" type="Node2D" parent="Environment"]
+
+[node name="Door" type="Node2D" parent="Environment/Interactables"]
+position = Vector2(217, 71)
+scale = Vector2(0.699517, 0.595073)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Interactables/Door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Interactables/Door/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ak3ou")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Interactables/Door"]
+scale = Vector2(0.0469179, -0.181122)
+texture = ExtResource("4_cvc0x")
+
+[node name="Door2" type="Node2D" parent="Environment/Interactables"]
+position = Vector2(368.795, 113.25)
+scale = Vector2(0.489324, 0.354112)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Interactables/Door2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Interactables/Door2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ak3ou")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Interactables/Door2"]
+scale = Vector2(0.0469179, -0.181122)
+texture = ExtResource("4_cvc0x")
+
+[node name="Lever1" parent="Environment/Interactables" instance=ExtResource("3_1c46e")]
+
+[node name="Lever4" parent="Environment/Interactables" instance=ExtResource("3_1c46e")]
+position = Vector2(88, -12)
+
+[node name="Lever5" parent="Environment/Interactables" instance=ExtResource("3_1c46e")]
+position = Vector2(171, 3)
+
+[node name="Lever2" type="Node2D" parent="Environment/Interactables"]
+position = Vector2(38, -221)
+scale = Vector2(0.4, 0.3)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Interactables/Lever2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Interactables/Lever2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ak3ou")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Interactables/Lever2"]
+scale = Vector2(0.1, 0.15)
+texture = ExtResource("4_qq1qr")
+
+[node name="InteractArea" parent="Environment/Interactables/Lever2" instance=ExtResource("5_qm7wi")]
+scale = Vector2(2.95225, 3.0289)
+interact_label = "Push"
+interact_type = "toggle button B"
+interact_value = "Attivato button b "
+
+[node name="Lever3" type="Node2D" parent="Environment/Interactables"]
+position = Vector2(194, -180)
+scale = Vector2(0.4, 0.3)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Interactables/Lever3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Interactables/Lever3/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ak3ou")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Interactables/Lever3"]
+scale = Vector2(0.1, 0.15)
+texture = ExtResource("4_qq1qr")
+
+[node name="InteractArea" parent="Environment/Interactables/Lever3" instance=ExtResource("5_qm7wi")]
+scale = Vector2(2.81804, 3.07897)
+interact_label = "Push"
+interact_type = "toggle button C"
+interact_value = "Attivato button c"
+
+[node name="Timed Button" type="Node2D" parent="Environment/Interactables"]
+position = Vector2(157, -67)
+scale = Vector2(0.4, 0.3)
+script = ExtResource("8_lwxkx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Interactables/Timed Button"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Interactables/Timed Button/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ak3ou")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Interactables/Timed Button"]
+scale = Vector2(0.1, 0.15)
+texture = ExtResource("4_qq1qr")
+
+[node name="InteractArea" parent="Environment/Interactables/Timed Button" instance=ExtResource("5_qm7wi")]
+scale = Vector2(2.81804, 3.07897)
+interact_label = "Push"
+interact_type = "toggle button D"
+interact_value = "Attivato button D"
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(45, -73)
@@ -36,11 +356,15 @@ scale = Vector2(1.67279, 1.64286)
 script = ExtResource("1_lomu2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, -0.5)
+position = Vector2(0, 7.38)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_a8re5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_sn341")
+animation = &"left"
+speed_scale = 2.0
 
 [node name="Interaction Components" type="Node2D" parent="Player"]
 z_index = 1
@@ -81,157 +405,6 @@ parameters/looping = true
 [node name="AudioListener2D" type="AudioListener2D" parent="Player"]
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-
-[node name="Wall" type="Node2D" parent="."]
-position = Vector2(-195, -106)
-scale = Vector2(0.84, 3.36)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
-shape = SubResource("RectangleShape2D_ak3ou")
-
-[node name="Sprite2D" type="Sprite2D" parent="Wall"]
-texture = ExtResource("3_6ibdu")
-
-[node name="Wall2" type="Node2D" parent="."]
-position = Vector2(21, 68)
-scale = Vector2(2.53561, -0.610534)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2/StaticBody2D"]
-shape = SubResource("RectangleShape2D_ak3ou")
-
-[node name="Sprite2D" type="Sprite2D" parent="Wall2"]
-texture = ExtResource("3_6ibdu")
-
-[node name="Wall3" type="Node2D" parent="."]
-position = Vector2(286, -101)
-scale = Vector2(0.44, 3.44)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3/StaticBody2D"]
-shape = SubResource("RectangleShape2D_ak3ou")
-
-[node name="Sprite2D" type="Sprite2D" parent="Wall3"]
-texture = ExtResource("3_6ibdu")
-
-[node name="Wall4" type="Node2D" parent="."]
-position = Vector2(57, -299)
-scale = Vector2(3.36, 0.3)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4/StaticBody2D"]
-shape = SubResource("RectangleShape2D_ak3ou")
-
-[node name="Sprite2D" type="Sprite2D" parent="Wall4"]
-texture = ExtResource("3_6ibdu")
-
-[node name="Door" type="Node2D" parent="."]
-position = Vector2(217, 71)
-scale = Vector2(0.699517, 0.595073)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Door"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
-shape = SubResource("RectangleShape2D_ak3ou")
-
-[node name="Sprite2D" type="Sprite2D" parent="Door"]
-scale = Vector2(0.0469179, -0.181122)
-texture = ExtResource("4_cvc0x")
-
-[node name="Door2" type="Node2D" parent="."]
-position = Vector2(368.795, 113.25)
-scale = Vector2(0.489324, 0.354112)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Door2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/StaticBody2D"]
-shape = SubResource("RectangleShape2D_ak3ou")
-
-[node name="Sprite2D" type="Sprite2D" parent="Door2"]
-scale = Vector2(0.0469179, -0.181122)
-texture = ExtResource("4_cvc0x")
-
-[node name="Button1" type="Node2D" parent="."]
-position = Vector2(-39, -136)
-scale = Vector2(0.4, 0.3)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Button1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Button1/StaticBody2D"]
-shape = SubResource("RectangleShape2D_ak3ou")
-
-[node name="Sprite2D" type="Sprite2D" parent="Button1"]
-scale = Vector2(0.1, 0.15)
-texture = ExtResource("4_qq1qr")
-
-[node name="InteractArea" parent="Button1" instance=ExtResource("5_qm7wi")]
-scale = Vector2(2.70767, 3.3373)
-interact_label = "Push"
-interact_type = "toggle button A"
-interact_value = "Attivato button a"
-
-[node name="Button2" type="Node2D" parent="."]
-position = Vector2(57, -137)
-scale = Vector2(0.4, 0.3)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Button2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Button2/StaticBody2D"]
-shape = SubResource("RectangleShape2D_ak3ou")
-
-[node name="Sprite2D" type="Sprite2D" parent="Button2"]
-scale = Vector2(0.1, 0.15)
-texture = ExtResource("4_qq1qr")
-
-[node name="InteractArea" parent="Button2" instance=ExtResource("5_qm7wi")]
-scale = Vector2(2.95225, 3.0289)
-interact_label = "Push"
-interact_type = "toggle button B"
-interact_value = "Attivato button b "
-
-[node name="Button3" type="Node2D" parent="."]
-position = Vector2(157, -137)
-scale = Vector2(0.4, 0.3)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Button3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Button3/StaticBody2D"]
-shape = SubResource("RectangleShape2D_ak3ou")
-
-[node name="Sprite2D" type="Sprite2D" parent="Button3"]
-scale = Vector2(0.1, 0.15)
-texture = ExtResource("4_qq1qr")
-
-[node name="InteractArea" parent="Button3" instance=ExtResource("5_qm7wi")]
-scale = Vector2(2.81804, 3.07897)
-interact_label = "Push"
-interact_type = "toggle button C"
-interact_value = "Attivato button c"
-
-[node name="Timed Button" type="Node2D" parent="."]
-position = Vector2(157, -67)
-scale = Vector2(0.4, 0.3)
-script = ExtResource("8_lwxkx")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Timed Button"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Timed Button/StaticBody2D"]
-shape = SubResource("RectangleShape2D_ak3ou")
-
-[node name="Sprite2D" type="Sprite2D" parent="Timed Button"]
-scale = Vector2(0.1, 0.15)
-texture = ExtResource("4_qq1qr")
-
-[node name="InteractArea" parent="Timed Button" instance=ExtResource("5_qm7wi")]
-scale = Vector2(2.81804, 3.07897)
-interact_label = "Push"
-interact_type = "toggle button D"
-interact_value = "Attivato button D"
 
 [connection signal="area_entered" from="Player/Interaction Components/InteractionArea" to="Player" method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="Player/Interaction Components/InteractionArea" to="Player" method="_on_interaction_area_area_exited"]
