@@ -6,6 +6,12 @@ extends CharacterBody2D
 @onready var interact_label = $"Interaction Components/InteractLabel"
 @onready var animation: AnimatedSprite2D = get_node("AnimatedSprite2D")
 
+<<<<<<< Updated upstream
+=======
+
+
+# Called when the node enters the scene tree for the first time.
+>>>>>>> Stashed changes
 func _physics_process(delta):
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 	
@@ -14,8 +20,9 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-	if(Input.is_action_just_pressed("interact") == true):
+	if(Input.is_action_just_pressed("interact")):
 		PuzzleManager.execute_interactions()
+		
 
 
 func _process(delta):
