@@ -1,17 +1,15 @@
 extends Node
 
-@export var door: Node2D
 
-<<<<<<< Updated upstream:scripts/singleton/puzzle_manager.gd
 @onready var all_interactions = []
+@onready var door: Node2D = $Environment/Interactables/Door
 
-=======
->>>>>>> Stashed changes:singleton/puzzle_manager.gd
 var button_a_pressed = false
 var button_b_pressed = false
 var button_c_pressed = false
 
 var interact_label = ""
+
 
 func execute_interactions():
 	# Calls the interact function of the lever
@@ -49,11 +47,9 @@ func on_player_exit_area(area: Area2D):
 	return interact_label
 
 func update_visual():
-<<<<<<< Updated upstream:scripts/singleton/puzzle_manager.gd
-	print("visual updated")
-=======
+
 	print("update label")
->>>>>>> Stashed changes:singleton/puzzle_manager.gd
+
 	if(all_interactions):
 		interact_label = all_interactions[0].interact_label
 	else:

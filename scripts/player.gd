@@ -4,14 +4,11 @@ extends CharacterBody2D
 @export var accel: float = 10
 
 @onready var interact_label = $"Interaction Components/InteractLabel"
-@onready var animation: AnimatedSprite2D = get_node("AnimatedSprite2D")
-
-<<<<<<< Updated upstream
-=======
+@onready var animation: AnimatedSprite2D = $AnimatedSprite2D
 
 
 # Called when the node enters the scene tree for the first time.
->>>>>>> Stashed changes
+
 func _physics_process(delta):
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 	

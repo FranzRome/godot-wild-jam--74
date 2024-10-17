@@ -1,16 +1,159 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmgdgae23gn6n"]
+[gd_scene load_steps=31 format=3 uid="uid://dmgdgae23gn6n"]
 
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_lomu2"]
 [ext_resource type="PackedScene" uid="uid://d3l5vbnm64pd4" path="res://scenes/lever.tscn" id="3_1c46e"]
 [ext_resource type="Texture2D" uid="uid://dv88f6aae21wl" path="res://icons/icon.svg" id="3_6ibdu"]
 [ext_resource type="Texture2D" uid="uid://bskeq2jfvgc5o" path="res://icons/haunted.png" id="4_cvc0x"]
 [ext_resource type="Texture2D" uid="uid://d2772la4150j4" path="res://icons/GWJ-Full-Logo-noBG.svg" id="4_qq1qr"]
 [ext_resource type="PackedScene" uid="uid://bafdf18a4ruk6" path="res://scenes/game_components/interact_area.tscn" id="5_qm7wi"]
 [ext_resource type="Texture2D" uid="uid://dlfx61bght1r5" path="res://sprites/Environment/Floor/Sprite_floor_colorindex.png" id="7_4lmn5"]
-[ext_resource type="PackedScene" uid="uid://d232a3g7231my" path="res://scenes/player.tscn" id="8_5ie2h"]
+[ext_resource type="AudioStream" uid="uid://dnxoy4pp73v20" path="res://audio/factory_reset.mp3" id="7_7uk0u"]
+[ext_resource type="Texture2D" uid="uid://cpx3l44exy0pg" path="res://sprites/Characters/player_sheet.png" id="7_qa5bu"]
 [ext_resource type="Script" path="res://scripts/timed_button.gd" id="8_lwxkx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ak3ou"]
 size = Vector2(120, 119.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8re5"]
+size = Vector2(10.1627, 6.23914)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2omm0"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53xs6"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k80rw"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi0ch"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w418"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7xor"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnfa6"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6l7p"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x84gg"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kau34"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1jrr"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xomi5"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luutu"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxa5d"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnbun"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whr2u"]
+atlas = ExtResource("7_qa5bu")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sn341"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2omm0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53xs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k80rw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi0ch")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w418")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7xor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnfa6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6l7p")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x84gg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kau34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1jrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xomi5")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luutu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxa5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnbun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whr2u")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hrxdi"]
+radius = 5.08063
 
 [node name="MainScene" type="Node2D"]
 
@@ -141,21 +284,13 @@ shape = SubResource("RectangleShape2D_ak3ou")
 scale = Vector2(0.0469179, -0.181122)
 texture = ExtResource("4_cvc0x")
 
-[node name="CombLever1" parent="Environment/Interactables" instance=ExtResource("3_1c46e")]
+[node name="Lever1" parent="Environment/Interactables" instance=ExtResource("3_1c46e")]
 
-[node name="CombLever2" parent="Environment/Interactables" instance=ExtResource("3_1c46e")]
+[node name="Lever4" parent="Environment/Interactables" instance=ExtResource("3_1c46e")]
 position = Vector2(88, -12)
 
-[node name="InteractArea" parent="Environment/Interactables/CombLever2" index="1"]
-interact_type = "toggle button B"
-interact_value = "Attivato button b"
-
-[node name="CombLever3" parent="Environment/Interactables" instance=ExtResource("3_1c46e")]
+[node name="Lever5" parent="Environment/Interactables" instance=ExtResource("3_1c46e")]
 position = Vector2(171, 3)
-
-[node name="InteractArea" parent="Environment/Interactables/CombLever3" index="1"]
-interact_type = "toggle button C"
-interact_value = "Attivato button c"
 
 [node name="Lever2" type="Node2D" parent="Environment/Interactables"]
 position = Vector2(38, -221)
@@ -215,8 +350,60 @@ interact_label = "Push"
 interact_type = "toggle button D"
 interact_value = "Attivato button D"
 
-[node name="Player" parent="." instance=ExtResource("8_5ie2h")]
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(45, -73)
+scale = Vector2(1.67279, 1.64286)
+script = ExtResource("1_lomu2")
 
-[editable path="Environment/Interactables/CombLever1"]
-[editable path="Environment/Interactables/CombLever2"]
-[editable path="Environment/Interactables/CombLever3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 7.38)
+shape = SubResource("RectangleShape2D_a8re5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_sn341")
+animation = &"down"
+speed_scale = 2.0
+
+[node name="Interaction Components" type="Node2D" parent="Player"]
+z_index = 1
+
+[node name="InteractionArea" type="Area2D" parent="Player/Interaction Components"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Interaction Components/InteractionArea"]
+scale = Vector2(1.45276, 1.52729)
+shape = SubResource("CircleShape2D_hrxdi")
+
+[node name="InteractLabel" type="Label" parent="Player/Interaction Components"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -28.0
+offset_right = 24.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.925567, 0.677378)
+text = "ciao"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AmbientSound" type="AudioStreamPlayer2D" parent="Player"]
+scale = Vector2(0.597804, 0.608695)
+stream = ExtResource("7_7uk0u")
+autoplay = true
+attenuation = 1.32835e-05
+parameters/looping = true
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Player"]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[connection signal="area_entered" from="Player/Interaction Components/InteractionArea" to="Player" method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="Player/Interaction Components/InteractionArea" to="Player" method="_on_interaction_area_area_exited"]
