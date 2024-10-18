@@ -24,7 +24,7 @@ func _process(delta: float):
 
 func execute_interactions():
 	# Calls the interact function of the lever
-	if(is_door_animating):
+	if is_door_animating:
 		return
 	if all_interactions:
 		var current_interaction = all_interactions[0]

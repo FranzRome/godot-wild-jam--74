@@ -9,8 +9,6 @@ func _ready():
 
 
 func on_puzzle_trigger_escape_door(is_puzzle_right: bool):
-	if PuzzleManager.is_door_animating:
-		return
 	if is_puzzle_right && door_open == false:
 		PuzzleManager.is_door_animating = true
 		open_escape_door()
@@ -19,6 +17,7 @@ func on_puzzle_trigger_escape_door(is_puzzle_right: bool):
 		PuzzleManager.is_door_animating = true
 		close_escape_door()
 		door_open = false
+
 			
 func open_escape_door():	
 	var tween = create_tween()
