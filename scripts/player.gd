@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
 @export var speed: float = 100
-@export var accel: float = 10
+@export var accel: float = 20
 
 @onready var interact_label = $"Interaction Components/InteractLabel"
+@onready var animation: AnimatedSprite2D = $AnimatedSprite2D
+
 
 # Called when the node enters the scene tree for the first time.
+
 func _physics_process(delta):
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 	
@@ -14,8 +17,24 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-	if(Input.is_action_just_pressed("interact") == true):
+	if(Input.is_action_just_pressed("interact")):
 		PuzzleManager.execute_interactions()
+		
+
+
+func _process(delta):
+	if velocity.x == 0 && velocity.y == 0:
+		animation.stop()
+	elif abs(velocity.x) >= abs(velocity.y):
+		if velocity.x < 0:
+			animation.play_backwards("left")
+		elif velocity.x > 0:
+			animation.play_backwards("right")
+	else:
+		if velocity.y < 0:
+			animation.play_backwards("up")
+		elif velocity.y > 0:
+			animation.play("down")
 
 # Interaction area
 func _on_interaction_area_area_entered(area: Area2D):
