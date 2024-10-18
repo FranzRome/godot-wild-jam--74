@@ -142,19 +142,23 @@ scale = Vector2(0.0469179, -0.181122)
 texture = ExtResource("4_cvc0x")
 
 [node name="CombLever1" parent="Environment/Interactables" instance=ExtResource("3_1c46e")]
+position = Vector2(94, -8)
+
+[node name="InteractArea" parent="Environment/Interactables/CombLever1" index="1"]
+interact_type = 0
 
 [node name="CombLever2" parent="Environment/Interactables" instance=ExtResource("3_1c46e")]
-position = Vector2(88, -12)
+position = Vector2(147, -6)
 
 [node name="InteractArea" parent="Environment/Interactables/CombLever2" index="1"]
-interact_type = "toggle button B"
+interact_type = 1
 interact_value = "Attivato button b"
 
 [node name="CombLever3" parent="Environment/Interactables" instance=ExtResource("3_1c46e")]
-position = Vector2(171, 3)
+position = Vector2(210, -9)
 
 [node name="InteractArea" parent="Environment/Interactables/CombLever3" index="1"]
-interact_type = "toggle button C"
+interact_type = 2
 interact_value = "Attivato button c"
 
 [node name="Lever2" type="Node2D" parent="Environment/Interactables"]
@@ -173,7 +177,6 @@ texture = ExtResource("4_qq1qr")
 [node name="InteractArea" parent="Environment/Interactables/Lever2" instance=ExtResource("5_qm7wi")]
 scale = Vector2(2.95225, 3.0289)
 interact_label = "Push"
-interact_type = "toggle button B"
 interact_value = "Attivato button b "
 
 [node name="Lever3" type="Node2D" parent="Environment/Interactables"]
@@ -192,7 +195,6 @@ texture = ExtResource("4_qq1qr")
 [node name="InteractArea" parent="Environment/Interactables/Lever3" instance=ExtResource("5_qm7wi")]
 scale = Vector2(2.81804, 3.07897)
 interact_label = "Push"
-interact_type = "toggle button C"
 interact_value = "Attivato button c"
 
 [node name="Timed Button" type="Node2D" parent="Environment/Interactables"]
@@ -212,11 +214,15 @@ texture = ExtResource("4_qq1qr")
 [node name="InteractArea" parent="Environment/Interactables/Timed Button" instance=ExtResource("5_qm7wi")]
 scale = Vector2(2.81804, 3.07897)
 interact_label = "Push"
-interact_type = "toggle button D"
 interact_value = "Attivato button D"
 
 [node name="Player" parent="." instance=ExtResource("8_5ie2h")]
+position = Vector2(106, -51)
+scale = Vector2(1, 1)
 
 [editable path="Environment/Interactables/CombLever1"]
+[editable path="Environment/Interactables/CombLever1/InteractArea"]
 [editable path="Environment/Interactables/CombLever2"]
+[editable path="Environment/Interactables/CombLever2/InteractArea"]
 [editable path="Environment/Interactables/CombLever3"]
+[editable path="Environment/Interactables/CombLever3/InteractArea"]

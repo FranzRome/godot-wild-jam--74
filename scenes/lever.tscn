@@ -4,23 +4,23 @@
 [ext_resource type="SpriteFrames" uid="uid://deqybvjkhko08" path="res://lever_frames.tres" id="2_eb2o6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ak3ou"]
-size = Vector2(65, 80)
+size = Vector2(16, 14)
 
 [node name="Lever1" type="Node2D"]
-scale = Vector2(0.4, 0.3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_ak3ou")
 
 [node name="InteractArea" parent="." instance=ExtResource("1_moaof")]
-scale = Vector2(2, 2)
 interact_label = "Push"
-interact_type = "toggle button A"
 interact_value = "Attivato button a"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 texture_filter = 1
-scale = Vector2(4, 4)
 sprite_frames = ExtResource("2_eb2o6")
+
+[editable path="InteractArea"]

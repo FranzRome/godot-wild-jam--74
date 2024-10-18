@@ -2,7 +2,6 @@ extends Node
 
 
 @onready var all_interactions = []
-@onready var door: Node2D = $Environment/Interactables/Door
 
 var button_a_pressed = false
 var button_b_pressed = false
@@ -16,17 +15,17 @@ func execute_interactions():
 	
 	if all_interactions:
 		var current_interaction = all_interactions[0]
-		current_interaction.interact_lever()
+		var lever_active = current_interaction.interact_lever()
 		match current_interaction.interact_type:
-			"toggle button A": 
-				button_a_pressed = !button_a_pressed
-				print("button a: " +  str(button_a_pressed) )
-			"toggle button B":
-				button_b_pressed = !button_b_pressed
-				print("button b: " + str(button_b_pressed))
-			"toggle button C": 
-				button_c_pressed = !button_c_pressed
-				print("button c: " + str(button_c_pressed))
+			InteractablePuzzleLever.InteractableType.BUTTON_A:
+				button_a_pressed = lever_active
+				print("button a: " +  str(lever_active) )
+			InteractablePuzzleLever.InteractableType.BUTTON_B:
+				button_b_pressed = lever_active
+				print("button b: " + str(lever_active))
+			InteractablePuzzleLever.InteractableType.BUTTON_C:
+				button_c_pressed = lever_active
+				print("button c: " + str(lever_active))
 			
 		
 		if(button_a_pressed==true && button_b_pressed==false && button_c_pressed==true):
@@ -55,9 +54,32 @@ func update_visual():
 	else:
 		interact_label = ""	
 			
+
+#region Door stuff
+
+var door_open = false
 func open_escape_door():
-	get_node("/root/MainScene/Environment/Interactables/Door").position = Vector2(139, 149)
+	if door_open:
+		return
+	door_open = true
+	var tween = create_tween()
+	var door = get_node("/root/MainScene/Environment/Interactables/Door")
+	door.position = Vector2(217, 71)
+	tween.tween_property(door, ^"position:y", 139, 0.5)
+	tween.tween_property(door, ^"position:x", 149, 0.5)
+	tween.tween_property(door, ^"position", Vector2(149, 139), 0.1)
+	
 		
 		
 func close_escape_door():
-	get_node("/root/MainScene/Environment/Interactables/Door").position = Vector2(217, 71)
+	if not door_open:
+		return
+	door_open = false
+	var tween = create_tween()
+	var door = get_node("/root/MainScene/Environment/Interactables/Door")
+	door.position = Vector2(149, 139)
+	tween.tween_property(door, ^"position:x", 217, 0.5)
+	tween.tween_property(door, ^"position:y", 71, 0.5)
+	tween.tween_property(door, ^"position", Vector2(217, 71), 0.1)
+
+#endregion
