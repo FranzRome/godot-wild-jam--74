@@ -12,7 +12,7 @@ var interact_label = ""
 
 func _process(delta: float):
 	if(is_door_animating):
-		door_animation_timer-= delta
+		door_animation_timer -= delta
 		if(door_animation_timer<= 0):
 			is_door_animating = false
 			door_animation_timer = door_animation_timer_max
@@ -69,6 +69,7 @@ var door_open = false
 var door_animation_timer_max = 2
 var door_animation_timer = 2
 var is_door_animating = false
+
 
 func open_escape_door():
 	if door_open:
