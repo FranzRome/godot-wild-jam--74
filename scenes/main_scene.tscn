@@ -144,9 +144,6 @@ texture = ExtResource("4_cvc0x")
 [node name="CombLever1" parent="Environment/Interactables" instance=ExtResource("3_1c46e")]
 position = Vector2(94, -8)
 
-[node name="InteractArea" parent="Environment/Interactables/CombLever1" index="1"]
-interact_type = 0
-
 [node name="CombLever2" parent="Environment/Interactables" instance=ExtResource("3_1c46e")]
 position = Vector2(147, -6)
 
