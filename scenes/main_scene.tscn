@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dmgdgae23gn6n"]
+[gd_scene load_steps=11 format=3 uid="uid://dmgdgae23gn6n"]
 
 [ext_resource type="PackedScene" uid="uid://d3l5vbnm64pd4" path="res://scenes/lever.tscn" id="3_1c46e"]
 [ext_resource type="Texture2D" uid="uid://dv88f6aae21wl" path="res://icons/icon.svg" id="3_6ibdu"]
+[ext_resource type="Script" path="res://scripts/door.gd" id="3_w2v0q"]
 [ext_resource type="Texture2D" uid="uid://bskeq2jfvgc5o" path="res://icons/haunted.png" id="4_cvc0x"]
 [ext_resource type="Texture2D" uid="uid://d2772la4150j4" path="res://icons/GWJ-Full-Logo-noBG.svg" id="4_qq1qr"]
 [ext_resource type="PackedScene" uid="uid://bafdf18a4ruk6" path="res://scenes/game_components/interact_area.tscn" id="5_qm7wi"]
@@ -115,16 +116,17 @@ texture = ExtResource("3_6ibdu")
 
 [node name="Interactables" type="Node2D" parent="Environment"]
 
-[node name="Door" type="Node2D" parent="Environment/Interactables"]
+[node name="EscapeDoor" type="Node2D" parent="Environment/Interactables"]
 position = Vector2(217, 71)
 scale = Vector2(0.699517, 0.595073)
+script = ExtResource("3_w2v0q")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Interactables/Door"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Environment/Interactables/EscapeDoor"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Interactables/Door/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Interactables/EscapeDoor/StaticBody2D"]
 shape = SubResource("RectangleShape2D_ak3ou")
 
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Interactables/Door"]
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Interactables/EscapeDoor"]
 scale = Vector2(0.0469179, -0.181122)
 texture = ExtResource("4_cvc0x")
 

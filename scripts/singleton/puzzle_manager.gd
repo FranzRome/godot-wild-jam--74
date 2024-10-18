@@ -1,5 +1,6 @@
 extends Node
 
+signal puzzle_trigger_event(is_puzzle_right: bool)
 
 @onready var all_interactions = []
 
@@ -9,11 +10,15 @@ var button_c_pressed = false
 
 var interact_label = ""
 
+var door_animation_timer_max = 2
+var door_animation_timer = 2
+@export var is_door_animating = false
+
 
 func _process(delta: float):
 	if(is_door_animating):
 		door_animation_timer -= delta
-		if(door_animation_timer<= 0):
+		if(door_animation_timer <= 0):
 			is_door_animating = false
 			door_animation_timer = door_animation_timer_max
 
@@ -34,13 +39,11 @@ func execute_interactions():
 			InteractablePuzzleLever.InteractableType.BUTTON_C:
 				button_c_pressed = lever_active
 				print("button c: " + str(lever_active))
-			
-		
+					
 		if(button_a_pressed==true && button_b_pressed==false && button_c_pressed==true):
-			open_escape_door()
+			puzzle_trigger_event.emit(true)
 		else:
-			close_escape_door()	
-			
+			puzzle_trigger_event.emit(false)
 			
 			
 func on_player_enter_area(area: Area2D):
@@ -65,36 +68,5 @@ func update_visual():
 
 #region Door stuff
 
-var door_open = false
-var door_animation_timer_max = 2
-var door_animation_timer = 2
-var is_door_animating = false
-
-
-func open_escape_door():
-	if door_open:
-		return
-	door_open = true
-	is_door_animating = true
-	var tween = create_tween()
-	var door = get_node("/root/MainScene/Environment/Interactables/Door")
-	door.position = Vector2(217, 71)
-	tween.tween_property(door, ^"position:y", 139, 0.5)
-	tween.tween_property(door, ^"position:x", 149, 0.5)
-	tween.tween_property(door, ^"position", Vector2(149, 139), 0.1)
-	
-		
-		
-func close_escape_door():
-	if not door_open:
-		return
-	door_open = false
-	is_door_animating = true
-	var tween = create_tween()
-	var door = get_node("/root/MainScene/Environment/Interactables/Door")
-	door.position = Vector2(149, 139)
-	tween.tween_property(door, ^"position:x", 217, 0.5)
-	tween.tween_property(door, ^"position:y", 71, 0.5)
-	tween.tween_property(door, ^"position", Vector2(217, 71), 0.1)
 
 #endregion
