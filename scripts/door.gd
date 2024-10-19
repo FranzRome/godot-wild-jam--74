@@ -2,7 +2,11 @@ extends Node2D
 
 var door_open = false
 
+
+
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_shape : CollisionShape2D = $StaticBody2D/CollisionShape2D
+@onready var collision_shape_initial_position: Vector2 = collision_shape.position
 
 func _ready():
 	PuzzleManager.puzzle_trigger_event.connect(on_puzzle_trigger_escape_door)
@@ -23,6 +27,7 @@ func on_puzzle_trigger_escape_door(is_puzzle_right: bool):
 			
 func open_escape_door():	
 	animated_sprite.play("door_opening")
+	collision_shape.position = collision_shape_initial_position - Vector2(0,60)
 	#var tween = create_tween()
 	#position = Vector2(217, 71)
 	#tween.tween_property(self, ^"position:y", 139, 0.5)
@@ -32,6 +37,7 @@ func open_escape_door():
 	
 func close_escape_door():
 	animated_sprite.play_backwards("door_opening")
+	collision_shape.position = collision_shape_initial_position
 	#var tween = create_tween()
 	#position = Vector2(149, 139)
 	#tween.tween_property(self, ^"position:x", 217, 0.5)
