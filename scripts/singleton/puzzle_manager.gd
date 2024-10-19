@@ -57,9 +57,6 @@ func on_player_exit_area(area: Area2D):
 	return interact_label
 
 func update_visual():
-
-	print("update label")
-
 	if(all_interactions):
 		interact_label = all_interactions[0].interact_label
 	else:
