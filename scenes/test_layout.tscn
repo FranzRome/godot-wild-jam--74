@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwqudjpgvgi7o"]
+
+[ext_resource type="Texture2D" uid="uid://bln28wds1n3fb" path="res://sprites/Environment/Rooms/Sprite_room_colorindex.png" id="1_w748l"]
+[ext_resource type="Texture2D" uid="uid://btfdt1vyd4eie" path="res://sprites/Environment/Torch/Sprite_torch_small_sheet.png" id="2_621gq"]
+[ext_resource type="Texture2D" uid="uid://bu4a7ifbafeg1" path="res://sprites/Environment/Torch/Sprite_torch_big_Sheet.png" id="3_uhxg8"]
+[ext_resource type="Texture2D" uid="uid://du7qkjha21dyf" path="res://sprites/Environment/Walls/Sprite_wall3.png" id="4_xbx7m"]
+[ext_resource type="Texture2D" uid="uid://dlfx61bght1r5" path="res://sprites/Environment/Floor/Sprite_floor_colorindex.png" id="5_w2tc0"]
+[ext_resource type="Texture2D" uid="uid://da6lfpvhfvum2" path="res://sprites/Props/Treasure_box/Sprite_TreasureBox_32pixt-export-Sheet.png" id="6_bpt45"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udggv"]
+atlas = ExtResource("6_bpt45")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_45x4f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udggv")
+}],
+"loop": true,
+"name": &"normale",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="stanza" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="stanza"]
+position = Vector2(882, 632)
+texture = ExtResource("1_w748l")
+
+[node name="Sprite2D9" type="Sprite2D" parent="stanza"]
+position = Vector2(424.546, 902.841)
+rotation = -3.14823
+scale = Vector2(1.23844, 3.27379)
+texture = ExtResource("1_w748l")
+
+[node name="Sprite2D2" type="Sprite2D" parent="stanza"]
+position = Vector2(1933.06, 1012.91)
+rotation = -1.57943
+scale = Vector2(12.8317, 7.0755)
+texture = ExtResource("2_621gq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="stanza"]
+position = Vector2(1369, 738)
+scale = Vector2(24.4031, 5.60227)
+texture = ExtResource("2_621gq")
+
+[node name="Sprite2D7" type="Sprite2D" parent="stanza"]
+position = Vector2(1353, 1259)
+rotation = -1.58131
+scale = Vector2(1.94796, 3.43647)
+texture = ExtResource("2_621gq")
+
+[node name="Sprite2D8" type="Sprite2D" parent="stanza"]
+position = Vector2(1080.88, 1213)
+scale = Vector2(12.1684, 5.47727)
+texture = ExtResource("2_621gq")
+
+[node name="Sprite2D6" type="Sprite2D" parent="stanza"]
+position = Vector2(662.399, 575.115)
+scale = Vector2(4.38363, -2.74814)
+texture = ExtResource("2_621gq")
+
+[node name="Sprite2D5" type="Sprite2D" parent="stanza"]
+position = Vector2(789, 975)
+rotation = -1.57819
+scale = Vector2(4.95673, 2.49779)
+texture = ExtResource("3_uhxg8")
+
+[node name="Sprite2D10" type="Sprite2D" parent="stanza"]
+position = Vector2(1266, 1501)
+rotation = -3.1409
+scale = Vector2(4.04352, 2.64194)
+texture = ExtResource("4_xbx7m")
+flip_h = true
+
+[node name="Sprite2D11" type="Sprite2D" parent="stanza"]
+position = Vector2(1695.63, 1765.88)
+scale = Vector2(0.307591, 0.517717)
+texture = ExtResource("5_w2tc0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="stanza"]
+position = Vector2(1307, 1582)
+scale = Vector2(3.75, 4)
+sprite_frames = SubResource("SpriteFrames_45x4f")
+animation = &"normale"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="stanza"]
+position = Vector2(1877, 813)
+scale = Vector2(3.75, 4)
+sprite_frames = SubResource("SpriteFrames_45x4f")
+animation = &"normale"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="stanza"]
+position = Vector2(332, 1036)
+scale = Vector2(3.75, 4)
+sprite_frames = SubResource("SpriteFrames_45x4f")
+animation = &"normale"
+
+[node name="stanza2" type="Node2D" parent="."]
+position = Vector2(199, -31)
