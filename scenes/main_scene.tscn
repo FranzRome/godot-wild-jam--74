@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dmgdgae23gn6n"]
+[gd_scene load_steps=24 format=3 uid="uid://dmgdgae23gn6n"]
 
 [ext_resource type="Texture2D" uid="uid://bln28wds1n3fb" path="res://sprites/Environment/Rooms/Sprite_room_colorindex.png" id="1_o0t3a"]
 [ext_resource type="PackedScene" uid="uid://d3l5vbnm64pd4" path="res://scenes/lever.tscn" id="3_1c46e"]
@@ -28,18 +28,70 @@ size = Vector2(30, 67)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ak3ou"]
 size = Vector2(15.3652, 93.577)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7shv8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqu4j"]
 atlas = ExtResource("3_m42s6")
-region = Rect2(0, 0, 40, 83)
+region = Rect2(0, 0, 36, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48c6j"]
+atlas = ExtResource("3_m42s6")
+region = Rect2(288, 0, 36, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md44j"]
+atlas = ExtResource("3_m42s6")
+region = Rect2(0, 0, 36, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2uwk"]
+atlas = ExtResource("3_m42s6")
+region = Rect2(36, 0, 36, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4aalv"]
+atlas = ExtResource("3_m42s6")
+region = Rect2(72, 0, 36, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n67rh"]
+atlas = ExtResource("3_m42s6")
+region = Rect2(108, 0, 36, 83)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2v3c"]
+atlas = ExtResource("3_m42s6")
+region = Rect2(144, 0, 36, 83)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i2xb0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7shv8")
+"texture": SubResource("AtlasTexture_vqu4j")
 }],
 "loop": true,
-"name": &"default",
+"name": &"door_closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48c6j")
+}],
+"loop": true,
+"name": &"door_open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md44j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2uwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aalv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n67rh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2v3c")
+}],
+"loop": false,
+"name": &"door_opening",
 "speed": 5.0
 }]
 
@@ -94,8 +146,9 @@ position = Vector2(10.0069, -15.1242)
 shape = SubResource("RectangleShape2D_ak3ou")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Environment/Interactables/EscapeDoor"]
-position = Vector2(-2.85912, -13.4437)
+position = Vector2(-5.71824, -13.4437)
 sprite_frames = SubResource("SpriteFrames_i2xb0")
+animation = &"door_opening"
 
 [node name="Door2" type="Node2D" parent="Environment/Interactables"]
 position = Vector2(368.795, 113.25)
@@ -111,10 +164,10 @@ scale = Vector2(0.0469179, -0.181122)
 texture = ExtResource("4_cvc0x")
 
 [node name="CombLever1" parent="Environment/Interactables" instance=ExtResource("3_1c46e")]
-position = Vector2(26, -92)
+position = Vector2(-11, -92)
 
 [node name="CombLever2" parent="Environment/Interactables" instance=ExtResource("3_1c46e")]
-position = Vector2(-11, -92)
+position = Vector2(27, -92)
 
 [node name="InteractArea" parent="Environment/Interactables/CombLever2" index="1"]
 interact_type = 1
@@ -185,6 +238,8 @@ interact_value = "Attivato button D"
 [node name="Player" parent="." instance=ExtResource("8_5ie2h")]
 position = Vector2(140, -70)
 scale = Vector2(1, 1)
+
+[connection signal="animation_finished" from="Environment/Interactables/EscapeDoor/AnimatedSprite2D" to="Environment/Interactables/EscapeDoor" method="_on_animated_sprite_2d_animation_finished"]
 
 [editable path="Environment/Interactables/CombLever1"]
 [editable path="Environment/Interactables/CombLever1/InteractArea"]
