@@ -27,7 +27,7 @@ func on_puzzle_trigger_escape_door(is_puzzle_right: bool):
 			
 func open_escape_door():	
 	animated_sprite.play("door_opening")
-	collision_shape.position = collision_shape_initial_position - Vector2(0,60)
+	collision_shape.position = collision_shape_initial_position - Vector2(0,50)
 	#var tween = create_tween()
 	#position = Vector2(217, 71)
 	#tween.tween_property(self, ^"position:y", 139, 0.5)

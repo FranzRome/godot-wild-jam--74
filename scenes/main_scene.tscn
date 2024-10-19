@@ -26,7 +26,7 @@ size = Vector2(8.61025, 31.8714)
 size = Vector2(30, 67)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ak3ou"]
-size = Vector2(15.3652, 93.577)
+size = Vector2(16.26, 130.812)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqu4j"]
 atlas = ExtResource("3_m42s6")
@@ -142,11 +142,12 @@ script = ExtResource("3_w2v0q")
 position = Vector2(0, -7.62939e-06)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Interactables/EscapeDoor/StaticBody2D"]
-position = Vector2(10.0069, -15.1242)
+position = Vector2(10.0069, -35.2898)
 shape = SubResource("RectangleShape2D_ak3ou")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Environment/Interactables/EscapeDoor"]
-position = Vector2(-5.71824, -13.4437)
+position = Vector2(-11.4365, -33.6093)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_i2xb0")
 animation = &"door_opening"
 
