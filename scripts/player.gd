@@ -15,12 +15,10 @@ var is_attacking = false
 func _physics_process(delta):
 	if(is_attacking):
 		return
-	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
-	
 	if(Input.is_action_just_pressed("attack")):
 		attack()
 		return
-	
+	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")	
 	
 	velocity.x = move_toward(velocity.x, speed * direction.x, accel)
 	velocity.y = move_toward(velocity.y, speed * direction.y, accel)
@@ -36,6 +34,8 @@ func _physics_process(delta):
 
 
 func attack():
+	if(PuzzleManager.is_silver_dagger_chest_open == false):
+		return
 	animation_weapon.play("attack_" + character_face_direction)
 	is_attacking = true
 	weapon.visible = true
@@ -65,6 +65,8 @@ func _process(delta):
 # Interaction area
 func _on_interaction_area_area_entered(area: Area2D):
 	interact_label.text = PuzzleManager.on_player_enter_area(area)
+	print("area entered")
+	print(interact_label.text)
 
 
 func _on_interaction_area_area_exited(area: Area2D):

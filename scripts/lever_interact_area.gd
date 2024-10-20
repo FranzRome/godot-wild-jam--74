@@ -8,14 +8,14 @@ enum InteractableType {
 
 @export var interact_label = "name"
 @export var interact_type = InteractableType.BUTTON_A
-@export var interact_value = "none"
+@onready var interact_value = PuzzleManager.INTERACT_OBJECTS.LEVER
 
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
 
 var is_lever_active = false
 
 
-func interact_lever() -> bool:
+func interact() -> bool:
 	is_lever_active = !is_lever_active
 	change_visual()
 	return is_lever_active

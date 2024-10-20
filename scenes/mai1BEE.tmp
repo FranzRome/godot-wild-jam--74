@@ -240,8 +240,6 @@ interact_label = "Push"
 
 [connection signal="animation_finished" from="Environment/Interactables/EscapeDoor/AnimatedSprite2D" to="Environment/Interactables/EscapeDoor" method="_on_animated_sprite_2d_animation_finished"]
 
-[editable path="Environment/Interactables/TreasureChest"]
-[editable path="Environment/Interactables/TreasureChest/InteractArea"]
 [editable path="Environment/Interactables/CombLever1"]
 [editable path="Environment/Interactables/CombLever1/InteractArea"]
 [editable path="Environment/Interactables/CombLever2"]
