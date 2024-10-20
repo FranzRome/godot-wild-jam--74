@@ -17,6 +17,11 @@ func _physics_process(delta):
 		return
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")
 	
+	if(Input.is_action_just_pressed("attack")):
+		attack()
+		return
+	
+	
 	velocity.x = move_toward(velocity.x, speed * direction.x, accel)
 	velocity.y = move_toward(velocity.y, speed * direction.y, accel)
 	
@@ -25,8 +30,7 @@ func _physics_process(delta):
 	if(Input.is_action_just_pressed("interact")):
 		PuzzleManager.execute_interactions()
 		
-	if(Input.is_action_just_pressed("attack") && direction == Vector2.ZERO):
-		attack()
+	
 		
 		
 
