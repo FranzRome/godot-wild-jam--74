@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj568gkp2tmcb"]
+
+[ext_resource type="Script" path="res://scripts/tutorial_story.gd" id="1_eocdt"]
+[ext_resource type="Texture2D" uid="uid://1j8bygjirecm" path="res://sprites/menu/Sprite_story_image.png" id="2_1ncb2"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eocdt")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1ncb2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = -50.5
+offset_bottom = 50.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "W, A, S, D for movement
+Press E to interact
+J or Left Click to attack
+PRESS E TO START GAME"

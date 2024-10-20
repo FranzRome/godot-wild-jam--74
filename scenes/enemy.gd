@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var speed: float = 20
+@export var speed: float = 5
 @export var view_range: float = 100
 @export var player: Node2D
 
