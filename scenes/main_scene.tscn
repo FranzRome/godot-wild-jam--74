@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dmgdgae23gn6n"]
+[gd_scene load_steps=28 format=3 uid="uid://dmgdgae23gn6n"]
 
 [ext_resource type="Texture2D" uid="uid://bln28wds1n3fb" path="res://sprites/Environment/Rooms/Sprite_room_colorindex.png" id="1_o0t3a"]
 [ext_resource type="PackedScene" uid="uid://d2hj4dymn3ovi" path="res://scenes/game_components/treasure_chest/treasure_chest.tscn" id="2_k1ka1"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/timed_button.gd" id="8_lwxkx"]
 [ext_resource type="Script" path="res://scenes/enemy.gd" id="11_htiea"]
 [ext_resource type="Texture2D" uid="uid://dci6k5lrl2plf" path="res://sprites/Environment/Cobwebs/Sprite_spider_withweb-Sheet.png" id="12_3r5ac"]
+[ext_resource type="AudioStream" uid="uid://dnxoy4pp73v20" path="res://audio/factory_reset.mp3" id="13_hv1n6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vx2hk"]
 size = Vector2(31.2815, 86.4826)
@@ -140,9 +141,6 @@ shape = SubResource("RectangleShape2D_opkym")
 position = Vector2(152, -75)
 scale = Vector2(1.053, 1)
 
-[node name="InteractArea" parent="Environment/Interactables/TreasureChest" index="1"]
-interact_label = "Open"
-
 [node name="EscapeDoor" type="Node2D" parent="Environment/Interactables"]
 position = Vector2(-66, 10)
 scale = Vector2(0.699517, 0.595073)
@@ -244,12 +242,17 @@ interact_label = "Push"
 [node name="Player" parent="." instance=ExtResource("8_5ie2h")]
 
 [node name="Enemy" type="Node2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(-132, 0)
+position = Vector2(-175, 0)
 script = ExtResource("11_htiea")
 player = NodePath("../Player")
 
 [node name="Sprite2D" type="Sprite2D" parent="Enemy"]
 texture = ExtResource("12_3r5ac")
+
+[node name="AmbientSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_hv1n6")
+autoplay = true
+parameters/looping = true
 
 [connection signal="animation_finished" from="Environment/Interactables/EscapeDoor/AnimatedSprite2D" to="Environment/Interactables/EscapeDoor" method="_on_animated_sprite_2d_animation_finished"]
 

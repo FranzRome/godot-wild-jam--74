@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0wttx"]
 [ext_resource type="Texture2D" uid="uid://cpx3l44exy0pg" path="res://sprites/Characters/player_sheet.png" id="2_p3mpc"]
-[ext_resource type="AudioStream" uid="uid://dnxoy4pp73v20" path="res://audio/factory_reset.mp3" id="3_c1306"]
+[ext_resource type="AudioStream" uid="uid://4tc4kbraefee" path="res://audio/step.mp3" id="3_3lq0a"]
 [ext_resource type="PackedScene" uid="uid://cddprbfm38qyq" path="res://scenes/game_components/weapon_components/silver_dagger.tscn" id="4_xy7ys"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8re5"]
@@ -373,11 +373,9 @@ sprite_frames = SubResource("SpriteFrames_sn341")
 animation = &"down"
 speed_scale = 2.0
 
-[node name="AmbientSound" type="AudioStreamPlayer2D" parent="."]
-scale = Vector2(0.597804, 0.608695)
-stream = ExtResource("3_c1306")
-autoplay = true
-attenuation = 1.32835e-05
+[node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3lq0a")
+volume_db = 7.0
 parameters/looping = true
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]

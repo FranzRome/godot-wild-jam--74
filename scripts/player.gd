@@ -5,12 +5,14 @@ extends CharacterBody2D
 
 @onready var interact_label = $"Interaction Components/InteractLabel"
 @onready var animation_character: AnimatedSprite2D = $AnimatedSprite2D
+@onready var walk_sound = $WalkSound
 
 @onready var animation_weapon : AnimationPlayer = $AnimationPlayer
 @onready var weapon : Node2D = $Weapon
 # Called when the node enters the scene tree for the first time.
 var character_face_direction = "down"
 var is_attacking = false
+var is_walking = false
 
 func _physics_process(delta):
 	if(is_attacking):
@@ -18,29 +20,31 @@ func _physics_process(delta):
 	if(Input.is_action_just_pressed("attack")):
 		attack()
 		return
+		
+	if(Input.is_action_just_pressed("interact")):
+		PuzzleManager.execute_interactions()
+		
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down")	
+	if(direction == Vector2.ZERO):
+		is_walking = false
+	else: 
+		is_walking = true		
 	
 	velocity.x = move_toward(velocity.x, speed * direction.x, accel)
 	velocity.y = move_toward(velocity.y, speed * direction.y, accel)
 	
 	move_and_slide()
 	
-	if(Input.is_action_just_pressed("interact")):
-		PuzzleManager.execute_interactions()
+	
 		
 
-func attack():
-	if(PuzzleManager.is_silver_dagger_chest_open == false):
-		return
-	animation_weapon.play("attack_" + character_face_direction)
-	is_attacking = true
-	weapon.visible = true
-	await animation_weapon.animation_finished
-	weapon.visible = false
-	is_attacking = false
 	
 
 func _process(delta):
+	if is_walking && !walk_sound.playing:
+		walk_sound.play()
+	elif !is_walking && walk_sound.playing:
+		walk_sound.stop()
 	if velocity.x == 0 && velocity.y == 0:
 		animation_character.stop()
 	elif abs(velocity.x) >= abs(velocity.y):
@@ -58,6 +62,15 @@ func _process(delta):
 			animation_character.play("down")
 			character_face_direction = "down"
 
+func attack():
+	if(PuzzleManager.is_silver_dagger_chest_open == false):
+		return
+	animation_weapon.play("attack_" + character_face_direction)
+	is_attacking = true
+	weapon.visible = true
+	await animation_weapon.animation_finished
+	weapon.visible = false
+	is_attacking = false
 # Interaction area
 func _on_interaction_area_area_entered(area: Area2D):
 	interact_label.text = PuzzleManager.on_player_enter_area(area)
