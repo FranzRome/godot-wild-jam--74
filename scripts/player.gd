@@ -28,10 +28,6 @@ func _physics_process(delta):
 	if(Input.is_action_just_pressed("interact")):
 		PuzzleManager.execute_interactions()
 		
-	
-		
-		
-
 
 func attack():
 	if(PuzzleManager.is_silver_dagger_chest_open == false):

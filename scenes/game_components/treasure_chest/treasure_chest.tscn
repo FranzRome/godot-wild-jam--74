@@ -1,92 +1,197 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2hj4dymn3ovi"]
+[gd_scene load_steps=13 format=3 uid="uid://d2hj4dymn3ovi"]
 
+[ext_resource type="Script" path="res://scripts/treasure_chest.gd" id="1_nx4qa"]
 [ext_resource type="PackedScene" uid="uid://bafdf18a4ruk6" path="res://scenes/game_components/interact_area/interact_area.tscn" id="1_u2ndu"]
-[ext_resource type="Script" path="res://scripts/treasure_chest.gd" id="2_i6aab"]
+[ext_resource type="Texture2D" uid="uid://bld8av7qw2yh1" path="res://sprites/Objects_against_Enemies/Silver_daggers/Sprite_silver_dagger.png" id="2_cg4tm"]
+[ext_resource type="Script" path="res://scripts/interact_area_treasure_chest.gd" id="2_i6aab"]
 [ext_resource type="Texture2D" uid="uid://da6lfpvhfvum2" path="res://sprites/Props/Treasure_box/Sprite_TreasureBox_32pixt-export-Sheet.png" id="3_7gm2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ak3ou"]
 size = Vector2(16, 14)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8bxmn"]
-atlas = ExtResource("3_7gm2x")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyhyx"]
+atlas = ExtResource("2_cg4tm")
+filter_clip = true
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_whf8b"]
-atlas = ExtResource("3_7gm2x")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="Animation" id="Animation_brjk5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ItemSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -3)]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uf58w"]
-atlas = ExtResource("3_7gm2x")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="Animation" id="Animation_11d26"]
+resource_name = "closed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4xpig"]
-atlas = ExtResource("3_7gm2x")
-region = Rect2(32, 0, 16, 16)
+[sub_resource type="Animation" id="Animation_h8py4"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1qsdr"]
-atlas = ExtResource("3_7gm2x")
-region = Rect2(48, 0, 16, 16)
+[sub_resource type="Animation" id="Animation_vxq61"]
+resource_name = "opening_chest"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.366667, 1.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ItemSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.366667, 0.7, 1.26667, 1.96667),
+"transitions": PackedFloat32Array(1, -2, 1, 1),
+"update": 0,
+"values": [Vector2(0, -3), Vector2(0, -40), Vector2(0, -20), Vector2(0, -20)]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2xt75"]
-atlas = ExtResource("3_7gm2x")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u4c4g"]
-atlas = ExtResource("3_7gm2x")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iodm8"]
-atlas = ExtResource("3_7gm2x")
-region = Rect2(96, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_gpfca"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8bxmn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_whf8b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uf58w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4xpig")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1qsdr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2xt75")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u4c4g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iodm8")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qea5e"]
+_data = {
+"RESET": SubResource("Animation_brjk5"),
+"closed": SubResource("Animation_11d26"),
+"open": SubResource("Animation_h8py4"),
+"opening_chest": SubResource("Animation_vxq61")
+}
 
 [node name="TreasureChest" type="Node2D"]
+script = ExtResource("1_nx4qa")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_ak3ou")
 
 [node name="InteractArea" parent="." instance=ExtResource("1_u2ndu")]
+position = Vector2(0, -3)
 scale = Vector2(1.053, 1)
 script = ExtResource("2_i6aab")
-interact_label = "open"
+interact_label = "Open"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-unique_name_in_owner = true
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_gpfca")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+texture = ExtResource("3_7gm2x")
+hframes = 7
+
+[node name="ItemSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -3)
+texture = SubResource("AtlasTexture_iyhyx")
+
+[node name="Label" type="Label" parent="ItemSprite"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "+ Silver Dagger"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qea5e")
+}
+autoplay = "closed"
 
 [editable path="InteractArea"]

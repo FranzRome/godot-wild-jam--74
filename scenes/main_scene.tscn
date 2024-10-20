@@ -140,6 +140,9 @@ shape = SubResource("RectangleShape2D_opkym")
 position = Vector2(152, -75)
 scale = Vector2(1.053, 1)
 
+[node name="InteractArea" parent="Environment/Interactables/TreasureChest" index="1"]
+interact_label = "Open"
+
 [node name="EscapeDoor" type="Node2D" parent="Environment/Interactables"]
 position = Vector2(-66, 10)
 scale = Vector2(0.699517, 0.595073)

@@ -1,7 +1,7 @@
 extends Node
 
 signal puzzle_trigger_event(is_puzzle_right: bool)
-signal silver_chest_opened()
+signal silver_dagger_chest_opened()
 
 @onready var all_interactions = []
 
@@ -41,8 +41,8 @@ func execute_interactions():
 var is_silver_dagger_chest_open = false
 
 func interact_treasure_chest(current_interaction):
-	if(is_silver_dagger_chest_open == false && current_interaction.interact_type == TreasureChest.WEAPON_TYPE.SILVER_DAGGER):
-		silver_chest_opened.emit()
+	if(is_silver_dagger_chest_open == false && current_interaction.interact_type == InteractAreaTreasureChest.WEAPON_TYPE.SILVER_DAGGER):
+		silver_dagger_chest_opened.emit()
 		is_silver_dagger_chest_open = true;
 	
 		
