@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cddprbfm38qyq"]
+
+[ext_resource type="Texture2D" uid="uid://bld8av7qw2yh1" path="res://sprites/Objects_against_Enemies/Silver_daggers/Sprite_silver_dagger.png" id="1_4jl8r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chgll"]
+size = Vector2(4, 8)
+
+[node name="SilverDagger" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.5, -3)
+texture = ExtResource("1_4jl8r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -4)
+shape = SubResource("RectangleShape2D_chgll")

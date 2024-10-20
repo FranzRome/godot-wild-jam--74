@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3l5vbnm64pd4"]
 
-[ext_resource type="PackedScene" uid="uid://bafdf18a4ruk6" path="res://scenes/game_components/interact_area.tscn" id="1_moaof"]
+[ext_resource type="PackedScene" uid="uid://bafdf18a4ruk6" path="res://scenes/game_components/lever_components/interact_area.tscn" id="1_moaof"]
 [ext_resource type="SpriteFrames" uid="uid://deqybvjkhko08" path="res://lever_frames.tres" id="2_eb2o6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ak3ou"]
